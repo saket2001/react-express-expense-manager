@@ -16,7 +16,7 @@ export const Layout = ({ children }) => {
         {children}
       </div>
       {/* nav */}
-      <div className="w-full self-end p-2 drop-shadow-md text-gray-500 bg-gray-300 z-10 sticky">
+      <div className="w-full self-end p-2 drop-shadow-md text-gray-500 bg-gray-200 z-10 sticky">
         <ul className="flex items-center justify-evenly gap-2">
           <li>
             <Link
@@ -47,13 +47,23 @@ export const Layout = ({ children }) => {
             </Link>
           </li>
           <li>
-            <Link to="/add-new-transaction" className={normalClasses}>
+            <Link
+              to="/savings"
+              className={
+                currLink === "/savings" ? activeClasses : normalClasses
+              }
+            >
               <i class="fas fa-piggy-bank text-xl"></i>
               Savings
             </Link>
           </li>
           <li>
-            <Link to="/add-new-transaction" className={normalClasses}>
+            <Link
+              to="/profile"
+              className={
+                currLink === "/profile" ? activeClasses : normalClasses
+              }
+            >
               <i class="fas fa-user-circle text-xl"></i>
               Profile
             </Link>

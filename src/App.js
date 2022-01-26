@@ -6,6 +6,8 @@ import { SignUp } from "./Pages/SignUp";
 import { SignIn } from "./Pages/SignIn";
 import { Dashboard } from "./Pages/Dashboard";
 import { Add } from "./Pages/Add";
+import { Profile } from "./Pages/Profile";
+import { Savings } from "./Pages/Savings";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route path="/sign-in" element={<SignIn />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/add-new" element={<Add />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/savings" element={<Savings />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );

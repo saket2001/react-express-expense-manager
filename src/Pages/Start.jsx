@@ -5,20 +5,10 @@ export const Start = () => {
   return (
     <div className="w-full min-h-screen bg-blue-800 flex flex-col justify-center items-center">
       <div className="flex flex-col items-center p-3 text-gray-200 mb-6">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-20 w-20"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 8h6m-5 0a3 3 0 110 6H9l3 3m-3-6h6m6 1a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
+        <img
+          src="https://img.icons8.com/dotty/100/ffffff/rupee.png"
+          alt="mrm logo"
+        />
         <h1 className="text-center lg:text-7xl text-5xl font-bold my-2 font-spl">
           MRM
         </h1>

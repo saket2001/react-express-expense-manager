@@ -54,7 +54,7 @@ export const Dashboard = () => {
     <Layout>
       <div className="bg-blue-800 h-48 flex flex-col gap-1 text-gray-100 px-3 py-2">
         <div className="flex items-center justify-between py-2">
-          <MainLogo color="text-white" />
+          <MainLogo color="white" />
           <h2 className="text-xl flex flex-col items-end">
             Hello, John Doe
             <span className="text-gray-300 text-sm">

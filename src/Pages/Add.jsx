@@ -25,7 +25,7 @@ export const Add = () => {
   return (
     <Layout>
       <form className="grid grid-cols-1 gap-1 p-2 py-4">
-        <BackBtn link="/dashboard" />
+        <BackBtn />
         {/*categories div  */}
         <Categories />
         {/* row 1 */}

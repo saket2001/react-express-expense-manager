@@ -12,7 +12,7 @@ export const InputGroup = ({
         {label}
       </label>
       <input
-        className="p-2 text-base rounded-md outline-blue-800 bg-gray-300"
+        className="p-2 text-base rounded-md outline-blue-800 bg-cyan-100 border border-gray-400"
         type={type}
         placeholder={placeholder}
         required={required}

@@ -7,7 +7,7 @@ export const TextArea = ({ label, placeholder }) => {
         {label}
       </label>
       <textarea
-        className="p-2 text-base rounded-md outline-blue-800 bg-gray-300"
+        className="p-2 text-base rounded-md outline-blue-800 bg-cyan-100 border border-gray-400"
         rows="4"
         placeholder={placeholder}
       ></textarea>

@@ -3,7 +3,7 @@ import { Category } from "./Category";
 
 export const Categories = () => {
   return (
-    <div className="grid grid-cols-4 place-items-center p-4 m-2 gap-3 rounded-md bg-gray-300 shadow-sm">
+    <div className="grid grid-cols-4 place-items-center p-4 m-2 gap-3 rounded-md bg-cyan-200 shadow-sm">
       <Category
         icon={<i class="fas fa-utensils text-xl text-gray-700"></i>}
         title="Food"
