@@ -4,7 +4,7 @@ import { ExpenseItem } from "../Components/ExpenseItem";
 import { InputMonth } from "../Components/InputMonth";
 import { Layout } from "../Components/Layout";
 import { SelectBtn } from "../Components/SelectBtn";
-import { ResponsiveContainer, PieChart, Pie, Tooltip } from "recharts";
+import { PieChart, Pie, Tooltip } from "recharts";
 
 const data01 = [
   { name: "Food", value: 400 },

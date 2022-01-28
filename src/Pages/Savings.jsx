@@ -1,6 +1,5 @@
 import React from "react";
 import { BackBtn } from "../Components/BackBtn";
-import { Dropdown } from "../Components/Dropdown";
 import { ExpenseItem } from "../Components/ExpenseItem";
 import { InputGroup } from "../Components/InputGroup";
 import { InputMonth } from "../Components/InputMonth";
