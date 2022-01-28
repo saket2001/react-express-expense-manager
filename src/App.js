@@ -8,6 +8,7 @@ import { Dashboard } from "./Pages/Dashboard";
 import { Add } from "./Pages/Add";
 import { Profile } from "./Pages/Profile";
 import { Savings } from "./Pages/Savings";
+import { Wallet } from "./Pages/Wallet";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/add-new" element={<Add />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/savings" element={<Savings />} />
+      <Route path="/wallet" element={<Wallet />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );

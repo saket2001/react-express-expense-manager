@@ -41,7 +41,10 @@ export const Layout = ({ children }) => {
             </Link>
           </li>
           <li>
-            <Link to="/add-new-transaction" className={normalClasses}>
+            <Link
+              to="/wallet"
+              className={currLink === "/wallet" ? activeClasses : normalClasses}
+            >
               <i class="fas fa-wallet text-xl"></i>
               Wallet
             </Link>

@@ -6,20 +6,9 @@ import { Layout } from "../Components/Layout";
 import { SelectBtn } from "../Components/SelectBtn";
 import { TextArea } from "../Components/TextArea";
 
-const WalletsOptions = [
-  {
-    name: "Main",
-  },
-];
+const WalletsOptions = ["Main"];
 
-const TypeOptions = [
-  {
-    name: "Expense",
-  },
-  {
-    name: "Income",
-  },
-];
+const TypeOptions = ["Expense", "Income"];
 
 export const Add = () => {
   return (

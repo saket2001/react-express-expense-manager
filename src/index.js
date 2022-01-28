@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
-      <div className="min-w-screen min-h-screen grid grid-cols-1 place-items-center bg">
+      <div className="min-w-screen min-h-screen grid grid-cols-1 place-items-center bg overflow-hidden">
         <div className="w-full h-full lg:w-2/6 flex flex-col justify-center items-center">
           <App />
         </div>

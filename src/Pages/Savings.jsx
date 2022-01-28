@@ -3,14 +3,11 @@ import { BackBtn } from "../Components/BackBtn";
 import { Dropdown } from "../Components/Dropdown";
 import { ExpenseItem } from "../Components/ExpenseItem";
 import { InputGroup } from "../Components/InputGroup";
+import { InputMonth } from "../Components/InputMonth";
 import { Layout } from "../Components/Layout";
 import { SelectBtn } from "../Components/SelectBtn";
 
-const WalletsOptions = [
-  {
-    name: "Main",
-  },
-];
+const WalletsOptions = ["Main"];
 
 const dummyList = [
   {
@@ -52,7 +49,7 @@ export const Savings = () => {
         {/* savings */}
         <div className="flex items-center justify-between text-gray-700 py-2 px-4 my-1">
           <h2 className="font-bold text-lg">All Savings</h2>
-          <Dropdown title="Filter By" options={[]} />
+          <InputMonth />
         </div>
         {/* savings list */}
         <ul className="flex flex-col gap-3 px-4">
