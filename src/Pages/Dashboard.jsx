@@ -3,7 +3,6 @@ import { Dropdown } from "../Components/Dropdown";
 import { ExpenseItem } from "../Components/ExpenseItem";
 import { Layout } from "../Components/Layout";
 import { Loader } from "../Components/Loader";
-import { MainLogo } from "../Components/MainLogo";
 import { Overall } from "../Components/Overall";
 
 const dummyList = [
@@ -63,9 +62,8 @@ export const Dashboard = () => {
       {!isLoading && (
         <Layout>
           <div className="bg-blue-800 h-48 flex flex-col gap-1 text-gray-100 px-3 py-2">
-            <div className="flex items-center justify-between py-2">
-              <MainLogo color="white" />
-              <h2 className="text-xl flex flex-col items-end">
+            <div className="flex items-center justify-between p-2">
+              <h2 className="text-xl flex flex-col">
                 Hello, John Doe
                 <span className="text-gray-300 text-sm">
                   Today is {new Date().toDateString()}
@@ -73,7 +71,7 @@ export const Dashboard = () => {
               </h2>
             </div>
             {/* overall */}
-            <div className="flex justify-center relative">
+            <div className="flex justify-center relative mx-2">
               <Overall />
             </div>
             {/* expenses list */}
@@ -82,7 +80,7 @@ export const Dashboard = () => {
               <Dropdown title="Filter By" options={filterOptions} />
             </div>
             {/* expenses list items */}
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-3 pb-6">
               {dummyList.map((item) => (
                 <li>
                   <ExpenseItem

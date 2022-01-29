@@ -16,7 +16,7 @@ export const MainLogo = ({ color = "blue" }) => {
           alt="mrm logo"
         />
       )}
-      MRM
+      <p className="text-gray-100">MRM</p>
     </h1>
   );
 };
