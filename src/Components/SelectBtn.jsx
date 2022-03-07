@@ -1,16 +1,20 @@
 import React from "react";
 
-export const SelectBtn = ({ title, options }) => {
+export const SelectBtn = ({ name, options, onChange, value }) => {
   return (
     <select
-      name={title}
-      id={title}
+      name={name}
+      id={name}
+      onChange={onChange}
+      value={value}
       className="p-2 px-4 text-base rounded-md outline-blue-800 bg-cyan-200 text-gray-700"
       required={true}
     >
-      {title}
+      {name}
       {options.map((opt) => (
-        <option value={opt}>{opt}</option>
+        <option name={name} value={opt}>
+          {opt}
+        </option>
       ))}
     </select>
   );

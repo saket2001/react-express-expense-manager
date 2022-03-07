@@ -4,39 +4,8 @@ import { ExpenseItem } from "../Components/ExpenseItem";
 import { Layout } from "../Components/Layout";
 import { Loader } from "../Components/Loader";
 import { Overall } from "../Components/Overall";
-
-const dummyList = [
-  {
-    title: "Bought an ice cream",
-    date: "01 Jan 2022",
-    amount: "80",
-  },
-  {
-    title: "Bought an ice cream",
-    date: "01 Jan 2022",
-    amount: "80",
-  },
-  {
-    title: "Bought an ice cream",
-    date: "01 Jan 2022",
-    amount: "80",
-  },
-  {
-    title: "Bought an ice cream",
-    date: "01 Jan 2022",
-    amount: "80",
-  },
-  {
-    title: "Bought an ice cream",
-    date: "01 Jan 2022",
-    amount: "80",
-  },
-  {
-    title: "Bought an ice cream",
-    date: "01 Jan 2022",
-    amount: "80",
-  },
-];
+import { useSelector } from "react-redux";
+import { SignIn } from "./SignIn";
 
 const filterOptions = [
   {
@@ -50,6 +19,9 @@ const filterOptions = [
 ];
 
 export const Dashboard = () => {
+  const { data } = useSelector((state) => state?.wallet);
+  const { isLoggedIn } = useSelector((state) => state?.auth);
+  const [expensesData] = useState(data.expenses);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -59,7 +31,8 @@ export const Dashboard = () => {
   return (
     <>
       {isLoading && <Loader />}
-      {!isLoading && (
+      {!isLoggedIn && <SignIn />}
+      {!isLoading && isLoggedIn && (
         <Layout>
           <div className="bg-blue-800 h-48 flex flex-col gap-1 text-gray-100 px-3 py-2">
             <div className="flex items-center justify-between p-2">
@@ -81,7 +54,7 @@ export const Dashboard = () => {
             </div>
             {/* expenses list items */}
             <ul className="flex flex-col gap-3 pb-6">
-              {dummyList.map((item) => (
+              {expensesData.map((item) => (
                 <li>
                   <ExpenseItem
                     title={item.title}

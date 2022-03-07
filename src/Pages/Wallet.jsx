@@ -5,6 +5,7 @@ import { InputMonth } from "../Components/InputMonth";
 import { Layout } from "../Components/Layout";
 import { SelectBtn } from "../Components/SelectBtn";
 import { PieChart, Pie, Tooltip } from "recharts";
+import { useSelector } from "react-redux";
 
 const data01 = [
   { name: "Food", value: 400 },
@@ -28,7 +29,7 @@ const categoriesOptions = [
 ];
 
 const dummyList = {
-  Expenses: [
+  expenses: [
     {
       title: "Bought an ice cream",
       date: "01 Jan 2022",
@@ -45,7 +46,7 @@ const dummyList = {
       amount: "80",
     },
   ],
-  Income: [
+  incomes: [
     {
       title: "January Salary",
       date: "01 Jan 2022",
@@ -59,11 +60,15 @@ export const Wallet = () => {
   const activeTab =
     "lg:text-xl text-lg border-b-4 border-gray-800 font-bold text-gray-800";
 
-  const [tabState, setActiveTab] = useState("Expenses");
+  const [tabState, setActiveTab] = useState("expenses");
+
+  const walletData = useSelector((state) => state?.wallet?.data[`${tabState}`]);
 
   const toggleTab = (value) => {
     setActiveTab(value);
   };
+
+  console.log(walletData);
 
   return (
     <Layout>
@@ -71,17 +76,17 @@ export const Wallet = () => {
         <BackBtn />
         <div className="grid grid-cols-2 gap-3 py-1 px-2 my-2">
           <button
-            className={tabState === "Expenses" ? activeTab : tab}
+            className={tabState === "expenses" ? activeTab : tab}
             onClick={() => {
-              toggleTab("Expenses");
+              toggleTab("expenses");
             }}
           >
             Expenses
           </button>
           <button
-            className={tabState === "Income" ? activeTab : tab}
+            className={tabState === "incomes" ? activeTab : tab}
             onClick={() => {
-              toggleTab("Income");
+              toggleTab("incomes");
             }}
           >
             Income
@@ -115,7 +120,7 @@ export const Wallet = () => {
         </div>
         {/* expenses list items */}
         <ul className="flex flex-col gap-3">
-          {dummyList[tabState].map((item) => (
+          {walletData.map((item) => (
             <li>
               <ExpenseItem
                 title={item.title}

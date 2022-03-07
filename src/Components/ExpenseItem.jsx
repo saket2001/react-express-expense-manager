@@ -7,7 +7,7 @@ export const ExpenseItem = ({ title, date, amount }) => {
         <h5 className="text-gray-800 font-bold lg:text-md text-base">
           {title}
         </h5>
-        <p className="text-gray-500 text-sm">{date}</p>
+        <p className="text-gray-500 text-sm">{new Date(date).toDateString()}</p>
       </div>
       <div className="flex items-center gap-1 text-gray-700 font-bold">
         <p className="text-xl">{amount}</p>

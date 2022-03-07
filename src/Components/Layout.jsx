@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { MainLogo } from "./MainLogo";
+import { useDispatch } from "react-redux";
+import { authActions } from "../Store/AuthSlice";
+import { useNavigate } from "react-router-dom";
 
 export const Layout = ({ children }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const currLink = window.location.pathname;
   const [sideBar, setSideBar] = useState(false);
+
+  const LogoutHandler = () => {
+    dispatch(authActions.toggleLogin());
+    navigate("/sign-in");
+  };
 
   const normalClasses =
     "flex gap-2 items-center py-2 px-6 transition rounded-lg hover:text-blue-600 hover:bg-blue-200 lg:text-xl text-xl";
@@ -93,10 +103,10 @@ export const Layout = ({ children }) => {
               </Link>
             </li>
             <li className="w-full">
-              <Link to="/" className={normalClasses}>
+              <button onClick={LogoutHandler} className={normalClasses}>
                 <i class="fas fa-lock text-2xl"></i>
                 Logout
-              </Link>
+              </button>
             </li>
           </ul>
         </div>
