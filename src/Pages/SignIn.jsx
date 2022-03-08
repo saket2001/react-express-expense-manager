@@ -5,10 +5,35 @@ import { MainLogo } from "../Components/MainLogo";
 import { useDispatch } from "react-redux";
 import { authActions } from "../Store/AuthSlice";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
 
 export const SignIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const Formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validate: (values) => {
+      let errors = {};
+
+      if (values.email === "") errors.email = "Email Is Required";
+      if (values.password === "") errors.password = "Password Is Required";
+
+      return errors;
+    },
+    onSubmit: (values) => {
+      const userData = {
+        email: values.email,
+        password: values.password,
+      };
+
+      console.log(userData);
+
+      if (userData) handleSignIn();
+    },
+  });
 
   const handleSignIn = () => {
     dispatch(authActions.toggleLogin());
@@ -16,7 +41,10 @@ export const SignIn = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-100 text-gray-800 flex flex-col p-2">
+    <form
+      onSubmit={Formik.handleSubmit}
+      className="w-full min-h-screen bg-gray-100 text-gray-800 flex flex-col p-2"
+    >
       {/* logo */}
       <MainLogo />
       {/* heading */}
@@ -39,14 +67,32 @@ export const SignIn = () => {
         <div className="bg-gray-400 w-1/2 h-1 rounded-lg"></div>
       </div>
       {/* email input */}
-      <InputGroup label={"Email"} placeholder={"@gmail.com"} />
+      <InputGroup
+        label={"Email"}
+        name="email"
+        onChange={Formik.handleChange}
+        onBlur={Formik.handleBlur}
+        isBlur={Formik.touched.email}
+        error_msg={Formik.errors.email}
+        value={Formik.values.name}
+        placeholder={"@gmail.com"}
+      />
       {/* password input */}
-      <InputGroup label={"Password"} placeholder={"**********"} />
+      <InputGroup
+        label={"Password"}
+        name="password"
+        onChange={Formik.handleChange}
+        onBlur={Formik.handleBlur}
+        value={Formik.values.password}
+        isBlur={Formik.touched.password}
+        error_msg={Formik.errors.password}
+        placeholder={"**********"}
+      />
 
       {/* sign up button */}
       <button
+        type="submit"
         className="m-1 my-3 px-4 py-2 rounded-lg bg-blue-800 text-gray-50 text-lg border-2 font-normal text-center"
-        onClick={handleSignIn}
       >
         Sign In
       </button>
@@ -57,6 +103,6 @@ export const SignIn = () => {
           Sign Up
         </Link>
       </p>
-    </div>
+    </form>
   );
 };
